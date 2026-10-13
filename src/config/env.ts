@@ -67,6 +67,8 @@ export const env = {
     port: parseInt(process.env.REDIS_PORT ?? '6379', 10),
     password: process.env.REDIS_PASSWORD || undefined,
     required: parseBoolean(process.env.REDIS_REQUIRED, true),
+    // Upstash và một số Redis cloud bắt buộc TLS — đặt REDIS_TLS=true khi dùng Upstash
+    tls: parseBoolean(process.env.REDIS_TLS),
   },
 
   cloudinary: {

@@ -108,6 +108,8 @@ export const redis =
         host: env.redis.host,
         port: env.redis.port,
         password: env.redis.password,
+        // Bật TLS khi dùng Upstash hoặc Redis cloud (REDIS_TLS=true)
+        ...(env.redis.tls ? { tls: {} } : {}),
         lazyConnect: true,
       });
 
